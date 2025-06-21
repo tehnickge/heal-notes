@@ -9,14 +9,14 @@ type SelectProps<T> = {
   placeholder?: string;
 };
 
-function Select<T>({
+const Select = <T extends unknown>({
   options,
   value,
   onChange,
   getOptionKey,
   getOptionValue,
   placeholder,
-}: SelectProps<T>) {
+}: SelectProps<T>) => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedKey = e.target.value;
     const selectedItem = options.find(
@@ -37,6 +37,6 @@ function Select<T>({
       ))}
     </select>
   );
-}
+};
 
 export default Select;
