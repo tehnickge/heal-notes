@@ -55,7 +55,15 @@ export default function HomePage() {
         placeholder="Select a user"
       />
 
-      <BaseDatePicker type={"range"} onChange={(value: [Date | null, Date | null]) => {}} value={[null, null]} />
+      <BaseDatePicker
+        type={"range"}
+        onChange={(value: [Date | null, Date | null]) => {}}
+        value={[null, null]}
+      />
     </main>
   );
 }
+
+
+// aboba аовфыаыфо оооааа dsajfjf cmfuw fjdsa пиздабол, js ts да
+// а я институт закончила
