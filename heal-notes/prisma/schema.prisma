@@ -19,16 +19,17 @@ model User {
   id String @id @default(uuid())
   username String @unique
   name String
+  secondname String?
   password String 
   notes Notes[]
 }
 
 model Notes {
   id String @id @default(uuid())
-  emotionRating Int
+  emotionRating Float?
   date DateTime @default(now())
-  note String
-  color String
+  note String?
+  color String?
   userFk String
   user User @relation(fields: [userFk], references: [id])
 }

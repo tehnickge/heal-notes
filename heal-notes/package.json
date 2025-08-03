@@ -23,15 +23,16 @@
     "@mantine/spotlight": "^8.1.0",
     "@mantine/tiptap": "^8.1.0",
     "@prisma/client": "^6.9.0",
-    "@stylexjs/stylex": "^0.13.1",
     "@tiptap/extension-link": "^2.14.0",
     "@tiptap/pm": "^2.14.0",
     "@tiptap/react": "^2.14.0",
     "@tiptap/starter-kit": "^2.14.0",
+    "bcryptjs": "^3.0.2",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
     "embla-carousel": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
+    "jsonwebtoken": "^9.0.2",
     "next": "15.3.3",
     "postcss": "^8.5.5",
     "react": "^19.0.0",
@@ -42,8 +43,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@stylexjs/babel-plugin": "^0.13.1",
-    "@stylexjs/nextjs-plugin": "^0.11.1",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -51,7 +52,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "postcss-preset-mantine": "^1.17.0",
-    "prisma": "^6.9.0",
+    "prisma": "^6.13.0",
     "typescript": "^5"
   }
 }
