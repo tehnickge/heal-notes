@@ -1,0 +1,1 @@
+ALTER TABLE "notes" ALTER COLUMN "emotion_rating" SET NOT NULL;
