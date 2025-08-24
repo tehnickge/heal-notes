@@ -1,7 +1,7 @@
 "use client";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
-import "@mantine/dates/styles.css"; // обязательно для стилизации DatePicker
+import "@mantine/dates/styles.css";
 
 export default function RootProvider({
   children,
