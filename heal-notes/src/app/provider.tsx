@@ -11,12 +11,10 @@ export default function RootProvider({
 }) {
   return (
     <MantineProvider defaultColorScheme="light">
-      {
-        <>
-          <HeaderMegaMenu />
-          {children}
-        </>
-      }
+      <>
+        <HeaderMegaMenu />
+        {children}
+      </>
     </MantineProvider>
   );
 }
