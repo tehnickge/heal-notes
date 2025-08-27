@@ -12,6 +12,7 @@
     "migrate:check": "drizzle-kit check"
   },
   "dependencies": {
+    "@electric-sql/pglite": "^0.3.7",
     "@mantine/carousel": "^8.1.0",
     "@mantine/charts": "^8.1.0",
     "@mantine/code-highlight": "^8.1.0",
@@ -36,7 +37,7 @@
     "bcryptjs": "^3.0.2",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
-    "drizzle-orm": "^0.44.4",
+    "drizzle-orm": "^0.44.5",
     "embla-carousel": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "jsonwebtoken": "^9.0.2",

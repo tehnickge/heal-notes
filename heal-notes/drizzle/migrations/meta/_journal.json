@@ -15,6 +15,20 @@
       "when": 1754490831596,
       "tag": "0001_keen_jackpot",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1756329187701,
+      "tag": "0002_neat_la_nuit",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1756329838827,
+      "tag": "0003_wandering_black_cat",
+      "breakpoints": true
     }
   ]
 }

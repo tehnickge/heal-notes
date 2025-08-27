@@ -1,6 +1,6 @@
 // src/lib/schema/user.ts
 import { pgTable, text, uuid } from "drizzle-orm/pg-core";
-import { notes } from "./notes";
+
 
 export const users = pgTable("user", {
   id: uuid("id").primaryKey().defaultRandom(),
