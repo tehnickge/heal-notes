@@ -4,3 +4,10 @@ export type UserJWT = {
   secondname: string | null;
   id: string;
 };
+
+export type UserRegistration = {
+  username: string;
+  name: string;
+  secondname?: string;
+  password: string;
+};

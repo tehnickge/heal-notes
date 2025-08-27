@@ -7,6 +7,7 @@ import {
 } from "@mantine/core";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const theme = createTheme({
   /** 🎨 Цвета */
@@ -175,22 +176,33 @@ const resolver: CSSVariablesResolver = (theme) => ({
   },
 });
 
+// Создаем экземпляр QueryClient
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 3, // Количество попыток при ошибке
+    },
+  },
+});
+
 export default function RootProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <MantineProvider
-      defaultColorScheme="light"
-      theme={theme}
-      withCssVariables
-      cssVariablesResolver={resolver}
-    >
-      <>
-        <HeaderMegaMenu />
-        {children}
-      </>
-    </MantineProvider>
+    <QueryClientProvider client={queryClient}>
+      <MantineProvider
+        defaultColorScheme="light"
+        theme={theme}
+        withCssVariables
+        cssVariablesResolver={resolver}
+      >
+        <>
+          <HeaderMegaMenu />
+          {children}
+        </>
+      </MantineProvider>
+    </QueryClientProvider>
   );
 }
