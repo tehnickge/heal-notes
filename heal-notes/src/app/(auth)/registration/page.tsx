@@ -4,11 +4,7 @@ import { Button, Checkbox, Container, Group, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import styles from "./index.module.scss";
 import { UserRegistration } from "@/types/user";
-import { fetchUserRegistration } from "@/shared/api/userAuthQueries";
-
-const test = async (data: UserRegistration) => {
-  return await fetchUserRegistration(data);
-};
+import { useUserAuthQueries } from "@/shared/stores/useUserAuth.queries";
 
 const RegistrationPage = () => {
   const form = useForm({
@@ -33,11 +29,24 @@ const RegistrationPage = () => {
       termsOfService: (value) => (value ? null : "Согласие обязательно"),
     },
   });
+  
+  const {
+    fetchUserRegistration,
+    isErrorUserRegistration,
+    userRegistrationData,
+    isSuccessUserRegistration,
+  } = useUserAuthQueries();
 
   return (
     <Container size={"xs"}>
       <div className={styles.root}>
-        <form onSubmit={form.onSubmit((values) => test(values))}>
+        {isErrorUserRegistration && "Ошибка"}
+        {isSuccessUserRegistration &&
+          `Успешно создан аккаунт с именем ${userRegistrationData?.username}`}
+
+        <form
+          onSubmit={form.onSubmit((values) => fetchUserRegistration(values))}
+        >
           <TextInput
             withAsterisk
             label="Логин"

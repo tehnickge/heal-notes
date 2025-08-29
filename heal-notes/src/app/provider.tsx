@@ -198,10 +198,8 @@ export default function RootProvider({
         withCssVariables
         cssVariablesResolver={resolver}
       >
-        <>
-          <HeaderMegaMenu />
-          {children}
-        </>
+        <HeaderMegaMenu />
+        {children}
       </MantineProvider>
     </QueryClientProvider>
   );

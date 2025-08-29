@@ -1,3 +1,4 @@
+import { UserLogin } from "@/types/user";
 import * as Yup from "yup";
 
 export const userLoginSchema: Yup.Schema<UserLogin> =
@@ -11,8 +12,3 @@ export const userLoginSchema: Yup.Schema<UserLogin> =
       .min(4, "Password must be at least 4 characters")
       .max(15, "Password must be less than 16 characters"),
   });
-
-export type UserLogin = {
-  username: string;
-  password: string;
-};

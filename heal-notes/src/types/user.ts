@@ -11,3 +11,8 @@ export type UserRegistration = {
   secondname?: string;
   password: string;
 };
+
+export type UserLogin = {
+  username: string;
+  password: string;
+};
