@@ -1,6 +1,5 @@
 // src/lib/schema/user.ts
-import { pgTable, text, uuid } from "drizzle-orm/pg-core";
-
+import { date, pgTable, text, uuid } from "drizzle-orm/pg-core";
 
 export const users = pgTable("user", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -8,4 +7,6 @@ export const users = pgTable("user", {
   name: text("name").notNull(),
   secondname: text("secondname"),
   password: text("password").notNull(),
+  createdAt: date().defaultNow().notNull(),
+  lastUpdate: date().defaultNow().notNull(),
 });
