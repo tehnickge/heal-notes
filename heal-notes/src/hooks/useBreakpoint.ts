@@ -1,4 +1,4 @@
-import { breakpoints } from '@/stylex';
+import { breakpoints } from '@/style';
 import { useState, useEffect, useRef } from 'react';
 
 

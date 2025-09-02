@@ -1,5 +1,5 @@
 import { UserJWT, UserLogin, UserRegistration } from "@/types/user";
-import { postData } from "../queriesMethods";
+import { postData } from "../shared/queriesMethods";
 import { ERROR } from "@/types/error";
 
 export const fetchUserRegistration = async (data: UserRegistration) => {

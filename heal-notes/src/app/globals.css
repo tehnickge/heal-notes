@@ -2,9 +2,5 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  margin: 0 auto;
-  padding: 0;
+  background-color: #f7fafc;
 }

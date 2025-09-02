@@ -1,10 +1,16 @@
 "use client";
 
-import { Button, Checkbox, Container, Group, TextInput } from "@mantine/core";
+import {
+  Button,
+  Checkbox,
+  Container,
+  Group,
+  TextInput,
+  Paper,
+  useMantineTheme,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
-import styles from "./index.module.scss";
-import { UserRegistration } from "@/types/user";
-import { useUserAuthQueries } from "@/shared/stores/useUserAuth.queries";
+import { useUserAuthQueries } from "@/stores/useUserAuth.queries";
 
 const RegistrationPage = () => {
   const form = useForm({
@@ -29,20 +35,21 @@ const RegistrationPage = () => {
       termsOfService: (value) => (value ? null : "Согласие обязательно"),
     },
   });
-  
+
   const {
     fetchUserRegistration,
     isErrorUserRegistration,
     userRegistrationData,
     isSuccessUserRegistration,
+    isPendingUserRegistration,
   } = useUserAuthQueries();
 
   return (
-    <Container size={"xs"}>
-      <div className={styles.root}>
+    <Container size="xs">
+      <Paper shadow="xs" radius="md" p="md" bg="pastelLavender.1">
         {isErrorUserRegistration && "Ошибка"}
         {isSuccessUserRegistration &&
-          `Успешно создан аккаунт с именем ${userRegistrationData?.username}`}
+          `Успешно создан аккаунт, ${userRegistrationData?.username}!`}
 
         <form
           onSubmit={form.onSubmit((values) => fetchUserRegistration(values))}
@@ -68,7 +75,7 @@ const RegistrationPage = () => {
             label="Пароль"
             placeholder="***"
             key={form.key("password")}
-            type={"password"}
+            type="password"
             {...form.getInputProps("password", { type: "input" })}
           />
 
@@ -79,11 +86,17 @@ const RegistrationPage = () => {
             {...form.getInputProps("termsOfService", { type: "checkbox" })}
           />
 
-          <Group justify="flex-end" mt="md">
-            <Button type="submit">Submit</Button>
+          <Group justify="center" mt="md">
+            {!isPendingUserRegistration ? (
+              <Button type="submit">Зарегистрироваться</Button>
+            ) : (
+              <Button type="submit" disabled>
+                Регистрация...
+              </Button>
+            )}
           </Group>
         </form>
-      </div>
+      </Paper>
     </Container>
   );
 };

@@ -18,5 +18,6 @@ export const useUserAuthQueries = () => {
     userRegistrationData: userRegistation.data,
     isErrorUserRegistration: userRegistation.isError,
     isSuccessUserRegistration: userRegistation.isSuccess,
+    isPendingUserRegistration: userRegistation.isPending
   };
 };
