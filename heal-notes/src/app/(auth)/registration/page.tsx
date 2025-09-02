@@ -7,12 +7,22 @@ import {
   Group,
   TextInput,
   Paper,
+  Text,
   useMantineTheme,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useUserAuthQueries } from "@/stores/useUserAuth.queries";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 const RegistrationPage = () => {
+  const router = useRouter();
+  const redirectToLogin = () => {
+    setTimeout(() => {
+      router.push("/login");
+    }, 5000);
+  };
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
@@ -44,13 +54,16 @@ const RegistrationPage = () => {
     isPendingUserRegistration,
   } = useUserAuthQueries();
 
+  if (isSuccessUserRegistration) {
+    redirectToLogin();
+  }
   return (
     <Container size="xs">
       <Paper shadow="xs" radius="md" p="md" bg="pastelLavender.1">
         {isErrorUserRegistration && "Ошибка"}
         {isSuccessUserRegistration &&
           `Успешно создан аккаунт, ${userRegistrationData?.username}!`}
-
+        <Text>Регистрация</Text>
         <form
           onSubmit={form.onSubmit((values) => fetchUserRegistration(values))}
         >
@@ -96,6 +109,9 @@ const RegistrationPage = () => {
             )}
           </Group>
         </form>
+        <Text>
+          <Link href="/login">Уже есть аккаунт? Войти.</Link>
+        </Text>
       </Paper>
     </Container>
   );

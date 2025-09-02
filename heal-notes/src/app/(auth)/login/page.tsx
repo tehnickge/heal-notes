@@ -10,8 +10,18 @@ import {
   TextInput,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
+  const router = useRouter();
+
+  const redirectToHome = () => {
+    setTimeout(() => {
+      router.push("/");
+    }, 5000);
+  };
+
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
@@ -38,12 +48,16 @@ const LoginPage = () => {
     isPendingUserLogin,
   } = useUserAuthQueries();
 
+  if (isSuccessUserLogin) {
+    redirectToHome();
+  }
   return (
     <Container size="xs">
       <Paper shadow="xs" radius="md" p="md" bg="pastelLavender.1">
         {isErrorUserLogin && "Ошибка"}
         {isSuccessUserLogin && `Успешно вошли, ${userLoginData?.username}!`}
 
+        <Text>Авторизация</Text>
         <form onSubmit={form.onSubmit((values) => fetchUserLogin(values))}>
           <TextInput
             withAsterisk
@@ -72,6 +86,9 @@ const LoginPage = () => {
             )}
           </Group>
         </form>
+        <Text>
+          <Link href="/registration">Нет аккаунта? Зарегистрироваться.</Link>
+        </Text>
       </Paper>
     </Container>
   );
