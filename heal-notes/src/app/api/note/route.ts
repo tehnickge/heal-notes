@@ -130,13 +130,12 @@ export const GET = async (req: NextRequest) => {
       });
     }
 
-    return await db.query.notes.findFirst({
+    return await db.query.notes.findMany({
       where: and(
         eq(notes.userFk, currentUserId),
         eq(notes.date, formattedDateStart)
       ),
     });
-    
   } catch (error) {
     if (error instanceof Yup.ValidationError) {
       return handleValidationError(error);
